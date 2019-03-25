@@ -6,7 +6,7 @@ package twg2.junitassist.checks;
  * @author TeamworkGuy2
  * @since 2014-3-29
  */
-public class ObjectMethodTests {
+public class ObjectEquality {
 	/**
 	 * @author TeamworkGuy2
 	 * @since 2014-3-29
@@ -20,18 +20,6 @@ public class ObjectMethodTests {
 	};
 
 
-	private static void testString() {
-		String a1 = new String("stringplist, etc-" + 1);
-		String a2 = new String("stringplist" + ", etc-" + 1);
-		String a3 = new String("stringplist" + ", " + "etc-" + 1);
-		String b1 = new String("plist" + "-things: " + 2);
-		String b2 = new String("plist" + "-" + "things: " + 2);
-		String c1 = new String(1 + "plist-string");
-
-		testObjects(a1, a2, a3, b1, b2, c1);
-	}
-
-
 	/** Test the specified objects' {@link Object#equals(Object)}, and {@link Object#hashCode()} methods for correctness.
 	 * @param a1 this object should be equal to {@code a2} and {@code a3}, but not the same object
 	 * @param a2
@@ -40,16 +28,16 @@ public class ObjectMethodTests {
 	 * @param b2
 	 * @param c1 this object should not have an equal objects among the other parameters
 	 */
-	private static void testObjects(Object a1, Object a2, Object a3, Object b1, Object b2, Object c1) {
-		testObjectMethods(EqualityTuple.A_B_EQUAL, b1, b2, a1);
-		testObjectMethods(EqualityTuple.A_C_EQUAL, a3, b2, a2);
-		testObjectMethods(EqualityTuple.B_C_EQUAL, a1, b2, b1);
-		testObjectMethods(EqualityTuple.A_B_C_EQUAL, a1, a2, a3);
-		testObjectMethods(EqualityTuple.NON_EQUAL, a3, b2, c1);
+	public static void testEquality(Object a1, Object a2, Object a3, Object b1, Object b2, Object c1) {
+		testEquality(EqualityTuple.A_B_EQUAL, b1, b2, a1);
+		testEquality(EqualityTuple.A_C_EQUAL, a3, b2, a2);
+		testEquality(EqualityTuple.B_C_EQUAL, a1, b2, b1);
+		testEquality(EqualityTuple.A_B_C_EQUAL, a1, a2, a3);
+		testEquality(EqualityTuple.NON_EQUAL, a3, b2, c1);
 	}
 
 
-	private static void testObjectMethods(EqualityTuple equal, Object a, Object b, Object c) {
+	public static void testEquality(EqualityTuple equal, Object a, Object b, Object c) {
 		a.toString();
 		b.toString();
 		c.toString();
@@ -107,12 +95,6 @@ public class ObjectMethodTests {
 		// "non-nullity" (Effective Java, 2nd Ed., Item 8)
 		assert !a.equals(null) && !b.equals(null) && !c.equals(null);
 
-	}
-
-
-	public static void main(String[] args) throws Exception {
-		testString();
-		System.out.println("Tests completed successfully");
 	}
 
 }

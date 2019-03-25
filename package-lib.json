@@ -1,9 +1,9 @@
 {
-	"version" : "0.3.0",
+	"version" : "0.3.1",
 	"name" : "test-checks",
 	"description" : "JUnit assistant; simplify testing lists of inputs and decouple test data from test logic",
-	"author": "TeamworkGuy2",
-	"homepage": "https://github.com/TeamworkGuy2/TestChecks",
+	"author" : "TeamworkGuy2",
+	"homepage" : "https://github.com/TeamworkGuy2/TestChecks",
 	"license" : "MIT",
 	"main" : "./bin/test_checks.jar",
 	"dependencies" : {
